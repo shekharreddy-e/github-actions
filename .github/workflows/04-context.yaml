@@ -20,3 +20,8 @@ jobs:
           echo "Project: $project"
           echo "Component: $component"
           echo "Environment: $environment"
+
+      - naem: Accessing Secrets
+        run: |
+          echo "DB User name: ${{ secrets.DB_USER }}" 
+          echo "DB Password: ${{ secrets.DB_PASSWORD }}" 
