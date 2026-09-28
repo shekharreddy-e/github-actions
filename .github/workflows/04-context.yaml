@@ -1,0 +1,11 @@
+
+name: Contexts Demo
+on: [push]
+
+jobs:
+  github-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print info
+        run: echo "${{ toJSON(github) }}" # this command to excute
+
