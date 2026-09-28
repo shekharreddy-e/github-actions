@@ -1,0 +1,10 @@
+name: Triggers
+on: workflow_dispatch
+# [push] #trigger the work ]flow on every push to repository
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Manually dispacth
+        run: echo "Manually dispacthed" # this command to excute
