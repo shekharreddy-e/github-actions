@@ -40,3 +40,13 @@ jobs:
         run: |
           echo "Image name: ${{ steps.tag.outputs.image-name }}"
           echo "Image Version: ${{ steps.tag.outputs.version }}"
+
+      - name: github env
+        run: |
+          echo "Goal= get a joB" >> $GITHUB_ENV
+          echo "Duration= one month" >> $GITHUB_ENV
+
+      - name: print github env
+        run: |
+          echo "Goal: $Goal"
+          echo "Duration: $Duration" 
