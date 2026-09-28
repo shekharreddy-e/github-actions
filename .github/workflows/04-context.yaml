@@ -29,3 +29,14 @@ jobs:
       - name: Accessing Variables
         run: |
           echo "DB URL: ${{ vars.DB_URL }}" 
+
+      - name: image tags
+        id: tag
+        run: |
+          echo "image-name=catalogue" >> $GITHUB_OUTPUT
+          echo "version=1.3.0" >> $GITHUB_OUTPUT
+
+      - name: Accessing previous step output 
+        run: |
+          echo "Image name: ${{ steps.tag.outputs.image-name }}"
+          echo "Image Version: ${{ steps.tag.outputs.version }}"
