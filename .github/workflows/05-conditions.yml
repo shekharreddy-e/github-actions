@@ -1,8 +1,6 @@
 name: conditions demo
 on: [push]
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref_name }} # main-workflow-main
-  cancel-in-progress: true # if true present execution will be cancelled , then new trigger will happen
+
 jobs:
   say-hello-job:
     runs-on: ubuntu-latest
