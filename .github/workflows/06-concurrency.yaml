@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Greet Hello World
-        run: sleep 20 
+        run: sleep 120
