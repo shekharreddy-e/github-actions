@@ -1,4 +1,4 @@
-name: main-workflow
+name: conditions demo
 on: [push]
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }} # main-workflow-main
@@ -7,7 +7,11 @@ jobs:
   say-hello-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Greet Hello World
-        run: sleep 120
+      - name: main branch
+        if: github.ref_name == "main"
+        run: echo "this one execute if branch is main"
 
+      - name: feature branch
+        if: github.ref_name == "feature-*"
+        run: echo "this one execute if branch is feature"
         
