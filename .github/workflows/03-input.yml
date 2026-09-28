@@ -1,0 +1,26 @@
+name: Input Demo
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: boolean
+      
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print inputs
+        run: |
+          echo "log level: ${{ inputs.logLevel}}"
+          echo "Tags: ${{ Inputs.tags }}"
