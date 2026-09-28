@@ -1,16 +1,24 @@
 name: Triggers
 on: 
-  push:
+# if someone opend PR to main branch from any feature branch,then trigger the workflow 
+  pull_request:
+    type: [opened, reopened]
     branches:
-      - "main*"
+      - 'releases/**'
+
+# push:
+#   branches:
+#     - "main*"
+
 # workflow_dispatch
+
 # [push] #trigger the work ]flow on every push to repository
 
 jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
-      - name: feature branch push
+      - name: main branch push
         run: echo "main branch push"
       # - name: Manually dispacth
       #   run: echo "Manually dispacthed" # this command to excute
