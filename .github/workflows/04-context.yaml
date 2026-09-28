@@ -10,6 +10,9 @@ jobs:
 
   github-context:
     runs-on: ubuntu-latest
+    outputs:
+      Image-name: ${{ steps.tag.outputs.image-name }}
+      Image-version: ${{ steps.tag.outputs.version }}
     steps:
       - name: print info
         run: |
@@ -34,7 +37,7 @@ jobs:
       - name: image tags
         id: tag
         run: |
-          echo "image-name=catalogue" >> $GITHUB_OUTPUT
+          echo "image-name=catalogue" >> $GITHUB_OUTPUT 
           echo "version=1.3.0" >> $GITHUB_OUTPUT
 
       - name: Accessing previous step output 
@@ -42,6 +45,7 @@ jobs:
           echo "Image name: ${{ steps.tag.outputs.image-name }}"
           echo "Image Version: ${{ steps.tag.outputs.version }}"
 
+      # github env is used for with in the job only
       - name: github env
         run: |
           echo "Goal= get a joB" >> $GITHUB_ENV
@@ -53,11 +57,10 @@ jobs:
           echo "Duration: $Duration" 
   
   Deploy:
+    needs: github-context # depends on above job
     runs-on: ubuntu-latest
-    needs: github-context
     steps:
       - name: print github env in anther jon
         run: |
-          echo "Goal: $Goal"
-          echo "Duration: $Duration" 
-
+          echo "Image Name: ${{ needs.github-context.outputs.Image-name}}"
+          echo "Image Version: ${{ needs.github-context.outputs.Image-version}}"
