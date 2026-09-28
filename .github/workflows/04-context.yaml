@@ -21,7 +21,7 @@ jobs:
           echo "Component: $component"
           echo "Environment: $environment"
 
-      - naem: Accessing Secrets
+      - name: Accessing Secrets
         run: |
           echo "DB User name: ${{ secrets.DB_USER }}" 
           echo "DB Password: ${{ secrets.DB_PASSWORD }}" 
