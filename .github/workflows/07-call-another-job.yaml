@@ -8,3 +8,4 @@ jobs:
       project: 'roboshop'
       Component: 'catalogue'
       environment: 'dev'
+      
