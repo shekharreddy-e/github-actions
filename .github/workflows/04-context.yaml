@@ -70,3 +70,6 @@ jobs:
     steps:
       - name: run sonar scan
         run: echo "Soanr scan"
+
+      - name: job context
+        run: "${{ toJSON(job) }}" 
