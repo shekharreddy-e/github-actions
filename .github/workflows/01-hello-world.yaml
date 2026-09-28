@@ -1,0 +1,17 @@
+# .github/workflows/hello-world.yml
+name: Hello World Workflow
+
+# Triggers the workflow on every push to repos
+on: [push]
+
+# A workflow run is made up of one or more jobs
+jobs:
+  # Job name
+  say-hello-job:
+    runs-on: ubuntu-latest
+
+    # Contains a sequence of tasks called steps
+    steps:
+      # Runs a single command using the runner's shell
+      - name: Greet Hello World
+        run: echo "Hello, World!" # this command to excute
