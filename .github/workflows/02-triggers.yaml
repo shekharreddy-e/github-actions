@@ -2,7 +2,7 @@ name: Triggers
 on: 
   push:
     branches:
-      - "feature*"
+      - "main*"
 # workflow_dispatch
 # [push] #trigger the work ]flow on every push to repository
 
@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: feature branch push
-        run: echo "feature branch push"
+        run: echo "main branch push"
       # - name: Manually dispacth
       #   run: echo "Manually dispacthed" # this command to excute
