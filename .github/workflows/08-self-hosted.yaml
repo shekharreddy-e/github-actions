@@ -1,0 +1,9 @@
+name: self hosted
+on: [push]
+
+jobs:
+  self-hosted:
+    runs-on: self-hosted
+    steps:
+      - name: Greet Hello World
+        run: echo "Hello, from self hosted runner!" 
