@@ -1,0 +1,11 @@
+name: Hello World Action
+on: Workflow_dispatch
+
+jobs:
+  say-hello-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet Hello World
+        uses: shekharreddy-e/github-actions/.github/actions/hello-world@main
+        with:
+          who-to-greet: 'shekharreddy'
