@@ -6,6 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Greet Hello World
+        id: greet
         uses: shekharreddy-e/github-actions/.github/actions/hello-world@main
         with:
           who-to-greet: 'shekharreddy'
+
+      - run: echo random-number "$RANDOM_NUMBER"
+        shell: bash
+        env:
+          RANDOM_NUMBER: ${{ steps.greet.outputs.random-number }}
